@@ -27,7 +27,7 @@ app.post('/', function (req, res) {
 });
 
 app.post('/dbForm', function (req, res) {
-    createRethinkConnection();
+    app.use(createRethinkConnection);
     //addRow(conn, req.body.dbId, req.body.dbValue);
     res.render('done');
 });

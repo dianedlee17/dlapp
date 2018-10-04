@@ -1,7 +1,7 @@
 const r = require("rethinkdb");
 
-module.exports = (conn, dbid, dbvalue) => {
-    return r.table("idk").run(connection, function(err, result) {
+module.exports = function getRows (conn) {
+    return r.table("idk").run(conn, function(err, result) {
         if (err) throw err;
         cursor.toArray(function(err, result) {
             if (err) throw err;

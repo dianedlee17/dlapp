@@ -1,9 +1,9 @@
 const r = require("rethinkdb");
 
-module.exports = (conn, dbid, dbvalue) => {
+module.exports = function addRow (conn, dbid, dbvalue) {
     return r.table("idk").insert([
         { idkId: dbid, idkValue: dbvalue } 
-    ]).run(connection, function(err, result) {
+    ]).run(conn, function(err, result) {
         if (err) throw err;
         console.log(JSON.stringify(result, null, 2));
     });
