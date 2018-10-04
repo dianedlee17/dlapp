@@ -26,14 +26,16 @@ app.post('/', function (req, res) {
     res.render('main');
 });
 
-app.post('/dbForm', function (req, res) {
-    app.use(createRethinkConnection);
-    //addRow(conn, req.body.dbId, req.body.dbValue);
+app.post('/dbForm', function (req, res, next) {
+    createRethinkConnection(req, res, next);
+
+    addRow(this.db, req.body.dbId, req.body.dbValue);
+
     res.render('done');
+
+    //closeRethinkConnection(req, res, next);
 });
 
 app.listen(3000, function () {
     console.log('Example app listening on port 3000!');
 });
-
-//app.on("after", closeRethinkConnection);
