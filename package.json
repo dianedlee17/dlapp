@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "migrate:up": "test -f .env && source .env ; RETHINK_DB=${RETHINK_DB} RETHINK_HOST=${RETHINK_HOST} RETHINK_PORT=${RETHINK_PORT} ./node_modules/.bin/rethink-migrate --root rethinkdb up"
+    "migrate:up": "source .env ; RETHINK_DB=${RETHINK_DB} RETHINK_HOST=${RETHINK_HOST} RETHINK_PORT=${RETHINK_PORT} ./node_modules/.bin/rethink-migrate --root rethinkdb up"
   },
   "author": "",
   "license": "ISC",
