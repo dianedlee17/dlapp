@@ -16,26 +16,23 @@ app.use(parser.urlencoded({
 }));
 app.use(parser.json());
 
-//app.use(createRethinkConnection);
+app.use(createRethinkConnection);
 
-app.get('/', function (req, res) {
+app.get('/', function (req, res, next) {
     res.render('main');
 });
 
-app.post('/', function (req, res) {
+app.post('/', function (req, res, next) {
     res.render('main');
 });
 
 app.post('/dbForm', function (req, res, next) {
-    createRethinkConnection(req, res, next);
-
-    addRow(this.db, req.body.dbId, req.body.dbValue);
-
+    addRow(req.db, req.body.dbId, req.body.dbValue);
     res.render('done');
-
-    //closeRethinkConnection(req, res, next);
 });
 
 app.listen(3000, function () {
     console.log('Example app listening on port 3000!');
 });
+
+//app.use(closeRethinkConnection);
