@@ -1,0 +1,13 @@
+{
+	"development": {
+		"RETHINK": {
+				"HOST": "localhost",
+				"PORT": 28015,
+				"DB": "diane_test"
+		},
+		"table_settings": {
+				"shards": 1,
+				"replicas": 1
+		}
+	}
+}

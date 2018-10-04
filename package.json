@@ -1,0 +1,20 @@
+{
+  "name": "dlapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "migrate:up": "test -f .env && source .env ; RETHINK_DB=${RETHINK_DB} RETHINK_HOST=${RETHINK_HOST} RETHINK_PORT=${RETHINK_PORT} ./node_modules/.bin/rethink-migrate --root rethinkdb up"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@socialtables/rethink-migrate": "^2.2.1",
+    "body-parser": "^1.18.3",
+    "dotenv": "^6.0.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "rethinkdb": "^2.3.3"
+  }
+}
